@@ -1,0 +1,23 @@
+#optiondisplay {
+    margin-top: 15px;
+    border: none;
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+#time-interval {
+    display: none;
+    width: 500px;
+    border: none;
+    padding-top: 15px;
+    padding-left: 10px
+}
+
+#from-ui, #to-ui {
+    display: inline;
+}
+
+#from-timepicker, #to-timepicker {
+    padding-left: 10px;
+    width: 100px;
+}

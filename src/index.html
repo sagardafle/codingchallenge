@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>LocusEnergy Coding Challenge</title>
-
+    <title>DateTime Interval with Options</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.js"></script>
@@ -18,156 +16,9 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker3.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker3.min.css">
     <script src="js/moment.js"></script>
-
-    <style>
-        #from-ui, #to-ui {
-            display: inline;
-        }
-
-        #from-timepicker, #to-timepicker {
-            padding-left: 10px;
-            width: 100px
-        }
-
-    </style>
-    <script type="text/javascript">
-
-
-        /**
-         * get the value of the from-date selected
-         */
-        $(function () {
-            $('ul > li').hide();
-
-            $("#from-datepicker").datepicker({
-                format: 'yyyy-mm-dd'
-            });
-            $("#from-datepicker").on("change", function () {
-                var fromdate = $(this).val();
-            });
-
-
-            /**
-             * get the value of the to-date selected
-             */
-
-            $("#to-datepicker").datepicker({
-                format: 'yyyy-mm-dd'
-            });
-            $("#to-datepicker").on("change", function () {
-                var fromdate = $(this).val();
-            });
-
-            /**
-             * from timepicker
-             */
-            $('#from-timepicker').timepicker({
-                'timeFormat': 'H:i:s',
-                minTime: new Date(0, 0, 0, 00, 00, 0),
-                maxTime: new Date(0, 0, 0, 23, 59, 0),
-               // startHour: 6,
-                startTime: new Date(0, 0, 0, 0, 01, 0),
-               // interval: 10,
-                use24hours: true
-            });
-
-
-            /**
-             * to timepicker
-             */
-            $('#to-timepicker').timepicker({
-                'timeFormat': 'H:i:s',
-                minTime: new Date(0, 0, 0, 00, 00, 0),
-                maxTime: new Date(0, 0, 0, 23, 59, 0),
-                startTime: new Date(0, 0, 0, 0, 01, 0),
-                use24hours: true
-            });
-
-
-            $("#from-datepicker").change(function () {
-                if ($(this).val() != "") {
-                    areFieldsSet()
-                }
-            });
-
-            $("#to-datepicker").change(function () {
-                if ($(this).val() != "") {
-                    areFieldsSet()
-                }
-            });
-
-            $("#from-timepicker").change(function () {
-                // this = the element for which the event was triggered
-                if ($(this).val() != "") {
-                    areFieldsSet()
-                }
-            });
-
-            $("#to-timepicker").change(function () {
-                if ($(this).val() != "") {
-                    areFieldsSet()
-                }
-            });
-
-
-            var areFieldsSet = function () {
-
-                /*
-                 get the values of the date and time fields
-                 */
-
-                console.log("inside func");
-
-
-                if ($('#from-datepicker').val() !== "" && $('#to-datepicker').val() !== "" && $('#from-timepicker').val() !== "" && $('#to-timepicker').val() !== "") {
-
-                    var url = window.location.href;
-                    console.log(url);
-                    var from_url = $('#from-datepicker').val() + "T" + $('#from-timepicker').val();
-
-                    var to_url = $('#to-datepicker').val() + "T" + $('#to-timepicker').val();
-
-                    url += '?from=' + from_url + "&to=" + to_url;
-                    //window.location.href = url;
-                    console.log("new url" + url);
-                    calculatetimeInterval(from_url, to_url);
-
-                }
-            }
-
-            var calculatetimeInterval = function (from_url, to_url) {
-                console.log(from_url);
-                console.log(to_url);
-                var a = moment(from_url);
-                a.format('DD/MM/YYYY hh:mm:ss');
-                var b = moment(to_url);
-                b.format('DD/MM/YYYY hh:mm:ss');
-                var days = b.diff(a, 'days');
-                var hours = b.diff(a, 'hours');
-                var minutes = b.diff(a, 'minutes') % 60;
-                if (hours >= 24) hours = hours % 24;
-                var timeintervalmsg = "Time interval: " + days + " days " + hours + " hours " + minutes + " minutes";
-                console.log(timeintervalmsg);
-                $("input[type='hidden']").remove();
-                $('#time-interval').val(timeintervalmsg);
-
-                displayoptions(days,hours,minutes);
-            }
-
-            var displayoptions =function(days,hours,minutes){
-                if (days >=366){
-                    $('#option-4').show();
-                    $('#option-5').show();
-                }
-            }
-
-        });
-
-
-    </script>
+    <script type="text/javascript" src="js/Javascriptcode.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 <div id="from-ui">
@@ -180,18 +31,19 @@
     <p style="margin-top:10px;margin-left:400px;margin-right:10px; display:inline">To</p>
     <input type="text" id="to-datepicker"/>
     <input class="timepicker" name="timepicker" id="to-timepicker"/>
+    <br>
 </div>
-
-<div>
-    <input id="time-interval" type = "hidden" value = "abcd" />
-</div>
-<ul style="list-style-type:none">
+<input name="int" id="time-interval" value="" readonly/>
+<br>
+<input id="optiondisplay" value="Options" readonly/>
+<ul id="option-list">
     <li id="option-1">Option 1</li>
     <li id="option-2">Option 2</li>
     <li id="option-3">Option 3</li>
     <li id="option-4">Option 4</li>
     <li id="option-5">Option 5</li>
+    <li id="option-error"><b>Error: Invalid input! To-Date timestamp must be greater than or equal to the From-Date
+        timestamp.</b></li>
 </ul>
-
 </body>
 </html>
