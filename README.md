@@ -1,4 +1,4 @@
-This projects works smoothly in IE,Firefox without any configurations.
+This projects works smoothly in Firefox without any configurations.
 However, to run on Google Chrome;we will need to do the following.
 The Problem
 The Google Chrome browser will not load local file by default due to security reason. The discussion has gone back and forth for the last 7 years and finally there is a reasonable workable solution.
