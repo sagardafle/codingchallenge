@@ -1,0 +1,6 @@
+ Handled corner-cases like:
+ 
+ 1. User cannot enter alphabets in input urls (Date and/or time)
+ 2. Changes are reflected if user changes input (timepicker) parameter from UI too. (input boxes)
+ 3. Time interval is displayed only in valid scenarios.
+ 4. Disabled editable text inputs for the user from datepicker in UI to avoid erroneous situations.

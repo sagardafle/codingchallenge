@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <title>DateTime Interval with Options</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.js"></script>
     <script type="text/javascript"
@@ -21,18 +19,25 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+<br>
+<div id="welcomemsg">The source code can be found <a href="https://github.com/sagardafle/codingchallenge">here</a></div>
+<figure>
+    <img id="logo" src="http://locusenergy.com/sites/www.locusenergy.com/themes/gr/logo.png"
+         alt="Locus Energy Challenge">
+</figure>
 <div id="from-ui">
     <br>
     <p style="margin-left:10px;margin-right:10px; display:inline">From</p>
-    <input type="text" id="from-datepicker"/>
+    <input type="text" id="from-datepicker" readonly/>
     <input class="timepicker" name="timepicker" id="from-timepicker"/>
 </div>
 <div id="to-ui">
     <p style="margin-top:10px;margin-left:400px;margin-right:10px; display:inline">To</p>
-    <input type="text" id="to-datepicker"/>
+    <input type="text" id="to-datepicker" readonly/>
     <input class="timepicker" name="timepicker" id="to-timepicker"/>
     <br>
 </div>
+<br>
 <input name="int" id="time-interval" value="" readonly/>
 <br>
 <input id="optiondisplay" value="Options" readonly/>
@@ -42,8 +47,7 @@
     <li id="option-3">Option 3</li>
     <li id="option-4">Option 4</li>
     <li id="option-5">Option 5</li>
-    <li id="option-error"><b>Error: Invalid input! To-Date timestamp must be greater than or equal to the From-Date
-        timestamp.</b></li>
+    <li id="option-error"><b>Error: Invalid input! To-Date timestamp must be greater than the From-Date timestamp.</b></li>
 </ul>
 </body>
 </html>

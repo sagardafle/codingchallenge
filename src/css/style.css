@@ -1,3 +1,16 @@
+#logo {
+    width: 300px;
+    height: 80px;
+    padding-left: 10px;
+}
+
+#welcomemsg {
+    padding-left: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 #optiondisplay {
     margin-top: 15px;
     border: none;
